@@ -79,11 +79,11 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
           {/* Desktop Right CTAs */}
           <div className="hidden sm:flex items-center gap-3">
             <a
-              href="tel:8847476527"
+              href="tel:8847476526"
               className="flex items-center gap-2 px-3.5 py-2 rounded-full border border-gold-500/30 text-gold-300 text-sm font-medium hover:bg-gold-500/10 hover:border-gold-500/60 transition-all"
             >
               <Phone className="w-4 h-4 text-gold-400" />
-              <span>8847476527</span>
+              <span>8847476526</span>
             </a>
 
             <button
@@ -128,11 +128,11 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
 
             <div className="pt-4 border-t border-gold-500/10 flex flex-col gap-3">
               <a
-                href="tel:8847476527"
+                href="tel:8847476526"
                 className="flex items-center justify-center gap-2 py-3 rounded-xl border border-gold-500/30 text-gold-300 font-semibold"
               >
                 <Phone className="w-4 h-4 text-gold-400" />
-                <span>Call Now: 8847476527</span>
+                <span>Call Now: 8847476526</span>
               </a>
 
               <button

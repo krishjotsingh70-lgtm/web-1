@@ -78,11 +78,11 @@ export default function Hero({ onOpenQuoteModal }: HeroProps) {
               </button>
 
               <a
-                href="tel:8847476527"
+                href="tel:8847476526"
                 className="w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold text-gold-300 border-2 border-gold-500/40 hover:border-gold-500 hover:bg-gold-500/10 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <Phone className="w-5 h-5 text-gold-400" />
-                <span>Call Now: 8847476527</span>
+                <span>Call Now: 8847476526</span>
               </a>
             </div>
 

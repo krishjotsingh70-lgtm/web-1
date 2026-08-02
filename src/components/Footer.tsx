@@ -84,8 +84,8 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-gold-400 shrink-0 mt-1" />
                 <div>
                   <div className="text-xs text-gray-500">Phone / WhatsApp</div>
-                  <a href="tel:8847476527" className="text-white font-semibold hover:text-gold-300 transition-colors">
-                    8847476527
+                  <a href="tel:8847476526" className="text-white font-semibold hover:text-gold-300 transition-colors">
+                    8847476526
                   </a>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               {/* WhatsApp Social */}
               <a
-                href="https://wa.me/918847476527"
+                href="https://wa.me/918847476526"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

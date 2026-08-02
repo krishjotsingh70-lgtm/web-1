@@ -67,7 +67,7 @@ export default function ContactSection({ prefilledMessage = '' }: ContactSection
               
               {/* Phone Card */}
               <a
-                href="tel:8847476527"
+                href="tel:8847476526"
                 className="group p-6 rounded-2xl bg-dark-950 border border-gold-500/20 hover:border-gold-500/60 hover:shadow-gold-sm transition-all duration-300 flex items-center gap-5"
               >
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-400/20 to-gold-600/10 border border-gold-500/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -76,7 +76,7 @@ export default function ContactSection({ prefilledMessage = '' }: ContactSection
                 <div>
                   <div className="text-xs text-gray-400 font-medium uppercase tracking-wider">Call / WhatsApp</div>
                   <div className="text-xl font-bold font-heading text-white group-hover:text-gold-300 transition-colors">
-                    8847476527
+                    8847476526
                   </div>
                   <div className="text-xs text-gold-400 font-medium mt-0.5">Click to Call Directly</div>
                 </div>
@@ -193,7 +193,7 @@ export default function ContactSection({ prefilledMessage = '' }: ContactSection
                       <input
                         type="tel"
                         required
-                        placeholder="8847476527"
+                        placeholder="8847476526"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full bg-dark-800 border border-gold-500/30 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 font-medium text-sm"

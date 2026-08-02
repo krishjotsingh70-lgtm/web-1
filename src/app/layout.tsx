@@ -9,7 +9,7 @@ export const viewport = {
 export const metadata: Metadata = {
   title: 'Palki Printing Press | Quality Printing, Creative Designs & Fast Delivery',
   description:
-    'Palki Printing Press provides high-quality printing services for business cards, wedding invitations, flex banners, brochures, bill books, letterheads, and digital/offset solutions. Contact: 8847476527.',
+    'Palki Printing Press provides high-quality printing services for business cards, wedding invitations, flex banners, brochures, bill books, letterheads, and digital/offset solutions. Email: krishjotsingh2@gmail.com, Phone: 8847476526.',
   keywords: [
     'Palki Printing Press',
     'Visiting Cards',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     'Bill Books Printing',
     'Offset Printing',
     'Digital Printing',
-    'Palki Press Phone 8847476527'
+    'Palki Press Phone 8847476526'
   ],
   authors: [{ name: 'Palki Printing Press' }],
 };

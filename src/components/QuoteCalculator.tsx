@@ -76,7 +76,7 @@ export default function QuoteCalculator({ initialService = 'Visiting Cards', onS
 
   const handleWhatsAppRedirect = () => {
     const text = encodeURIComponent(getQuoteText());
-    window.open(`https://wa.me/918847476527?text=${text}`, '_blank');
+    window.open(`https://wa.me/918847476526?text=${text}`, '_blank');
   };
 
   const handleCopyQuote = () => {
@@ -277,7 +277,7 @@ export default function QuoteCalculator({ initialService = 'Visiting Cards', onS
                   className="w-full py-3.5 rounded-xl font-bold text-sm text-dark-950 bg-emerald-400 hover:bg-emerald-300 transition-colors flex items-center justify-center gap-2 shadow-lg"
                 >
                   <MessageCircle className="w-4 h-4 fill-dark-950" />
-                  <span>Send Order to WhatsApp (8847476527)</span>
+                  <span>Send Order to WhatsApp (8847476526)</span>
                 </button>
 
                 <button

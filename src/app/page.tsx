@@ -99,7 +99,7 @@ export default function Home() {
               </p>
               <div className="pt-4 space-y-3">
                 <a
-                  href={`https://wa.me/918847476527?text=Hello%20Palki%20Printing%20Press!%20I%20would%20like%20a%20quote%20for%20${encodeURIComponent(selectedQuoteService)}.`}
+                  href={`https://wa.me/918847476526?text=Hello%20Palki%20Printing%20Press!%20I%20would%20like%20a%20quote%20for%20${encodeURIComponent(selectedQuoteService)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 font-bold text-dark-950 flex items-center justify-center gap-2"
