@@ -1,154 +1,153 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Phone, Menu, X, Printer, Sparkles, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
-interface NavbarProps {
-  onOpenQuoteModal: (serviceName?: string) => void;
-}
+const NAV_ITEMS = [
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Services', href: '#services' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Timeline', href: '#timeline' },
+  { label: 'Reviews', href: '#testimonials' },
+  { label: 'Contact', href: '#contact' },
+];
 
-export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+      setIsScrolled(window.scrollY > 20);
+
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress((window.scrollY / totalHeight) * 100);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Quote Calculator', href: '#calculator' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Why Choose Us', href: '#why-us' },
-    { name: 'Reviews', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-dark-950/90 backdrop-blur-md border-b border-gold-500/20 py-3 shadow-gold-sm'
-          : 'bg-gradient-to-b from-dark-950/90 to-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          
-          {/* Brand Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-300 via-gold-500 to-gold-700 p-0.5 shadow-gold-sm transition-transform duration-300 group-hover:scale-105">
-              <div className="w-full h-full bg-dark-950 rounded-[7px] flex items-center justify-center">
-                <Printer className="w-5 h-5 text-gold-400" />
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#050505]/80 backdrop-blur-md border-b border-white/10 py-3 shadow-2xl'
+            : 'bg-transparent py-5'
+        }`}
+      >
+        {/* Scroll Progress Line */}
+        <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-400 transition-all duration-150" style={{ width: `${scrollProgress}%` }} />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Logo Badge */}
+          <a
+            href="#hero"
+            className="flex items-center gap-3 group"
+            data-cursor="hover"
+          >
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 via-indigo-600 to-cyan-500 p-[1px] shadow-[0_0_15px_rgba(139,92,246,0.3)] group-hover:scale-105 transition-transform duration-300">
+              <div className="w-full h-full bg-[#08080c] rounded-[11px] flex items-center justify-center font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+                KS
               </div>
             </div>
-            <div>
-              <span className="text-xl sm:text-2xl font-bold font-heading text-gold-gradient tracking-wide block leading-none">
-                PALKI
+            <div className="flex flex-col">
+              <span className="font-heading font-bold text-white tracking-wide text-base group-hover:text-purple-400 transition-colors">
+                {PERSONAL_INFO.name}
               </span>
-              <span className="text-[10px] sm:text-xs font-semibold text-gray-400 tracking-widest uppercase block mt-1">
-                Printing Press
+              <span className="text-[10px] text-gray-400 uppercase tracking-widest flex items-center gap-1">
+                <Sparkles className="w-2.5 h-2.5 text-cyan-400" /> Editor & Designer
               </span>
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-            {navLinks.map((link) => (
+          {/* Desktop Nav Items */}
+          <nav className="hidden md:flex items-center gap-1 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-1.5 rounded-full shadow-inner">
+            {NAV_ITEMS.map((item) => (
               <a
-                key={link.name}
-                href={link.href}
-                className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-gold-400 transition-colors relative group"
+                key={item.href}
+                href={item.href}
+                data-cursor="hover"
+                className="px-3.5 py-1.5 text-xs font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-full transition-all duration-200"
               >
-                {link.name}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-gold-300 to-gold-600 transition-all duration-300 group-hover:w-4/5 rounded-full" />
+                {item.label}
               </a>
             ))}
           </nav>
 
-          {/* Desktop Right CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* CTA & Mobile Toggle */}
+          <div className="flex items-center gap-3">
             <a
-              href="tel:8847476526"
-              className="flex items-center gap-2 px-3.5 py-2 rounded-full border border-gold-500/30 text-gold-300 text-sm font-medium hover:bg-gold-500/10 hover:border-gold-500/60 transition-all"
+              href="#contact"
+              data-cursor="hover"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] hover:scale-105 transition-all duration-300"
             >
-              <Phone className="w-4 h-4 text-gold-400" />
-              <span>8847476526</span>
+              <span>Hire Me</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
 
+            {/* Mobile menu button */}
             <button
-              onClick={() => onOpenQuoteModal()}
-              className="relative group overflow-hidden px-5 py-2 rounded-full font-semibold text-sm text-dark-950 bg-gold-gradient shadow-gold-sm hover:shadow-gold-md transition-all duration-300 transform hover:-translate-y-0.5"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              data-cursor="hover"
+              className="md:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-white"
+              aria-label="Toggle menu"
             >
-              <span className="relative z-10 flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4" />
-                Get a Quote
-              </span>
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
+        </div>
+      </header>
 
-          {/* Mobile Menu Toggle Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-gray-300 hover:text-gold-400 hover:bg-dark-800 transition-colors"
-            aria-label="Toggle navigation menu"
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-30 bg-[#050505]/95 backdrop-blur-xl pt-24 px-6 md:hidden flex flex-col justify-between pb-12"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-
-        </div>
-      </div>
-
-      {/* Mobile Slide-down Navigation Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-dark-900/95 backdrop-blur-xl border-b border-gold-500/20 px-4 pt-4 pb-6 mt-3 shadow-2xl transition-all">
-          <div className="flex flex-col space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between px-4 py-3 rounded-lg text-gray-200 hover:text-gold-400 hover:bg-dark-800 transition-all text-base font-medium"
-              >
-                <span>{link.name}</span>
-                <ChevronRight className="w-4 h-4 text-gold-500/50" />
-              </a>
-            ))}
-
-            <div className="pt-4 border-t border-gold-500/10 flex flex-col gap-3">
-              <a
-                href="tel:8847476526"
-                className="flex items-center justify-center gap-2 py-3 rounded-xl border border-gold-500/30 text-gold-300 font-semibold"
-              >
-                <Phone className="w-4 h-4 text-gold-400" />
-                <span>Call Now: 8847476526</span>
-              </a>
-
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenQuoteModal();
-                }}
-                className="w-full py-3 rounded-xl font-bold text-dark-950 bg-gold-gradient shadow-gold-sm flex items-center justify-center gap-2"
-              >
-                <Sparkles className="w-4 h-4" />
-                Get a Quote
-              </button>
+            <div className="flex flex-col gap-4">
+              {NAV_ITEMS.map((item, index) => (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-2xl font-heading font-bold text-gray-200 hover:text-purple-400 py-2 border-b border-white/5 flex items-center justify-between"
+                >
+                  <span>{item.label}</span>
+                  <ArrowUpRight className="w-5 h-5 text-gray-500" />
+                </motion.a>
+              ))}
             </div>
-          </div>
-        </div>
-      )}
-    </header>
+
+            <div className="flex flex-col gap-4 pt-6 border-t border-white/10">
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3 text-center text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-cyan-500 rounded-xl shadow-lg"
+              >
+                Hire Me Now
+              </a>
+              <div className="text-center text-xs text-gray-400 font-mono">
+                📞 {PERSONAL_INFO.phone} | ✉ {PERSONAL_INFO.email}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

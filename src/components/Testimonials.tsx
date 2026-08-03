@@ -1,96 +1,129 @@
 'use client';
 
-import { Sparkles, Star, Quote } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { TESTIMONIALS } from '../data/portfolioData';
 
 export default function Testimonials() {
-  const reviews = [
-    {
-      name: 'Rajesh Sharma',
-      role: 'Business Owner & Entrepreneur',
-      rating: 5,
-      comment: 'Palki Printing Press created our luxury gold-foiled business cards and corporate brochures. The paper quality and color fidelity blew us away! Deliveries are always right on time.',
-      item: 'Visiting Cards & Brochures',
-    },
-    {
-      name: 'Simran & Gurpreet',
-      role: 'Wedding Clients',
-      rating: 5,
-      comment: 'Our wedding invitation cards received endless compliments from all our guests! The royal laser-cut work and gold calligraphic detailing were simply majestic. Highly recommended!',
-      item: 'Royal Wedding Cards',
-    },
-    {
-      name: 'Amit Verma',
-      role: 'Event Organizer',
-      rating: 5,
-      comment: 'We needed 15 large outdoor flex banners and 5,000 pamphlets within 24 hours for a major expo. Palki Press pulled through flawlessly with crisp prints and unbelievable speed.',
-      item: 'Flex Banners & Pamphlets',
-    },
-    {
-      name: 'Priya Malhotra',
-      role: 'Retail Store Manager',
-      rating: 5,
-      comment: 'Extremely professional team! Their custom die-cut product stickers and branded bill books have given our store a very premium corporate look. Best pricing in town.',
-      item: 'Stickers & Bill Books',
-    },
-  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const current = TESTIMONIALS[currentIndex];
 
   return (
-    <section id="testimonials" className="py-24 bg-dark-950 relative overflow-hidden">
-      
-      {/* Background Accent */}
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-gold-500/5 rounded-full blur-[140px] pointer-events-none" />
+    <section id="testimonials" className="relative py-24 bg-[#050505] overflow-hidden">
+      {/* Background Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-600/10 rounded-full blur-[170px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-800 border border-gold-500/30 text-gold-400 text-xs font-semibold uppercase tracking-widest shadow-gold-sm">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Client Praise</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-bold font-heading text-white tracking-tight">
-            What Our <span className="text-gold-gradient">Clients Say</span>
+        {/* Section Title */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+            CLIENT FEEDBACK
+          </span>
+          <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-white mt-4 tracking-tight">
+            What Clients <span className="text-gradient">Say</span>
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg font-light">
-            Read authentic experiences from local business leaders, event planners, and families who rely on Palki Printing Press.
+          <p className="text-sm sm:text-base text-gray-400 mt-4 leading-relaxed">
+            Testimonials from creators, agencies, and businesses who entrusted me with their visual storytelling.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-gold-300 to-gold-600 mx-auto rounded-full" />
         </div>
 
-        {/* 4 Reviews Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {reviews.map((rev, idx) => (
-            <div
-              key={idx}
-              className="relative rounded-3xl bg-dark-900 border border-gold-500/20 p-8 flex flex-col justify-between hover:border-gold-500/50 hover:shadow-gold-md transition-all duration-300"
+        {/* Carousel Container */}
+        <div className="relative max-w-3xl mx-auto">
+          
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="p-8 sm:p-12 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-2xl shadow-2xl relative"
             >
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-gold-500/10 pointer-events-none" />
-
-              <div>
-                {/* Rating Stars */}
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(rev.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-gold-400 text-gold-400" />
-                  ))}
-                </div>
-
-                <p className="text-base text-gray-300 font-light italic leading-relaxed mb-6">
-                  &ldquo;{rev.comment}&rdquo;
-                </p>
+              {/* Quote Icon */}
+              <div className="absolute top-6 right-6 text-purple-500/20">
+                <Quote className="w-16 h-16" />
               </div>
 
-              <div className="pt-4 border-t border-gold-500/15 flex items-center justify-between">
+              {/* Star Rating */}
+              <div className="flex items-center gap-1 text-amber-400 mb-6">
+                {[...Array(current.rating)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-amber-400" />
+                ))}
+              </div>
+
+              {/* Quote Text */}
+              <p className="text-base sm:text-xl text-gray-200 leading-relaxed font-light italic mb-8">
+                "{current.quote}"
+              </p>
+
+              {/* Author Profile */}
+              <div className="flex items-center gap-4 border-t border-white/10 pt-6">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-purple-400/50">
+                  <Image
+                    src={current.avatar}
+                    alt={current.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div>
-                  <h4 className="text-lg font-bold font-heading text-white">{rev.name}</h4>
-                  <p className="text-xs text-gray-400">{rev.role}</p>
+                  <h4 className="font-heading font-bold text-white text-base">{current.name}</h4>
+                  <p className="text-xs text-gray-400">
+                    {current.role} &bull; <span className="text-cyan-400">{current.company}</span>
+                  </p>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-dark-800 border border-gold-500/20 text-gold-300 text-[11px] font-medium">
-                  {rev.item}
-                </span>
               </div>
+            </motion.div>
+          </AnimatePresence>
 
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-between mt-8">
+            <div className="flex gap-2">
+              {TESTIMONIALS.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  data-cursor="hover"
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    idx === currentIndex ? 'w-8 bg-gradient-to-r from-purple-500 to-cyan-400' : 'w-2 bg-white/20'
+                  }`}
+                />
+              ))}
             </div>
-          ))}
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setCurrentIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1))}
+                data-cursor="hover"
+                className="p-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                aria-label="Previous testimonial"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length)}
+                data-cursor="hover"
+                className="p-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                aria-label="Next testimonial"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
         </div>
 
       </div>

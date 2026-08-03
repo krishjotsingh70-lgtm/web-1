@@ -1,171 +1,163 @@
 'use client';
 
-import { Sparkles, Phone, Award, Clock, ShieldCheck, ArrowRight, Printer, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowDown, Sparkles, Play, Send, Film, Palette, Eye, Award } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
-interface HeroProps {
-  onOpenQuoteModal: () => void;
-}
-
-export default function Hero({ onOpenQuoteModal }: HeroProps) {
+export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden bg-dark-950">
-      {/* Dynamic Ambient Background Elements */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-gold-600/5 rounded-full blur-[100px] pointer-events-none" />
-      
-      {/* Decorative Printing Grid Pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(#D4AF37 1px, transparent 1px)`,
-          backgroundSize: '32px 32px'
-        }}
-      />
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col justify-center items-center pt-24 pb-12 overflow-hidden bg-grid-pattern"
+    >
+      {/* Background Animated Gradient Blobs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
+      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none animate-pulse-glow delay-1000" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Hero Content */}
-          <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-            
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-dark-800/80 border border-gold-500/30 text-gold-300 text-xs sm:text-sm font-medium shadow-gold-sm">
-              <span className="flex h-2 w-2 rounded-full bg-gold-400 animate-pulse" />
-              <Sparkles className="w-4 h-4 text-gold-400" />
-              <span>Premium Printing Press & Design Studio</span>
-            </div>
-
-            {/* Main Headline */}
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-heading text-white tracking-tight leading-[1.1]">
-                Palki Printing <br />
-                <span className="text-gold-gradient drop-shadow-sm">Press</span>
-              </h1>
-              <p className="text-xl sm:text-2xl font-light text-gold-200/90 italic tracking-wide">
-                &ldquo;Quality Printing, Creative Designs & Fast Delivery&rdquo;
-              </p>
-            </div>
-
-            {/* Description */}
-            <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Transforming your vision into flawless physical print. From luxurious business cards and wedding stationery to high-impact flex banners and custom packaging, we deliver unmatched color precision and speed.
-            </p>
-
-            {/* Quick Feature Chips */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 text-xs sm:text-sm text-gray-300">
-              <div className="flex items-center gap-1.5 bg-dark-900/80 px-3 py-1.5 rounded-lg border border-white/5">
-                <CheckCircle2 className="w-4 h-4 text-gold-400" />
-                <span>Modern Heidelberg Offset</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-dark-900/80 px-3 py-1.5 rounded-lg border border-white/5">
-                <CheckCircle2 className="w-4 h-4 text-gold-400" />
-                <span>Gold Foil & Spot UV</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-dark-900/80 px-3 py-1.5 rounded-lg border border-white/5">
-                <CheckCircle2 className="w-4 h-4 text-gold-400" />
-                <span>Express 24h Turnaround</span>
-              </div>
-            </div>
-
-            {/* CTA Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-              <button
-                onClick={onOpenQuoteModal}
-                className="w-full sm:w-auto px-8 py-4 rounded-full text-base font-bold text-dark-950 bg-gold-gradient shadow-gold-md hover:shadow-gold-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
-              >
-                <span>Get a Free Quote</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <a
-                href="tel:8847476526"
-                className="w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold text-gold-300 border-2 border-gold-500/40 hover:border-gold-500 hover:bg-gold-500/10 transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <Phone className="w-5 h-5 text-gold-400" />
-                <span>Call Now: 8847476526</span>
-              </a>
-            </div>
-
-            {/* Live Stats Bar */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-gold-500/15 max-w-xl mx-auto lg:mx-0">
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">15k+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Projects Printed</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-gold-400 font-heading">99.9%</div>
-                <div className="text-xs sm:text-sm text-gray-400">Color Accuracy</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">100%</div>
-                <div className="text-xs sm:text-sm text-gray-400">On-Time Delivery</div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Right Visual Card Showcase */}
-          <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              {/* Outer Glowing Border Frame */}
-              <div className="relative rounded-3xl bg-gradient-to-b from-gold-400/30 via-gold-600/10 to-transparent p-1 shadow-2xl">
-                <div className="rounded-[22px] bg-dark-900 p-6 space-y-6 overflow-hidden relative">
-                  
-                  {/* Decorative Banner Graphics / Image preview */}
-                  <div className="relative rounded-xl overflow-hidden aspect-[4/3] group">
-                    <img
-                      src="/images/visiting_cards_preview_1785491610100.png"
-                      alt="Palki Printing Press Showcase"
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent" />
-                    
-                    <div className="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-dark-950/80 backdrop-blur-md border border-gold-500/30 flex items-center justify-between">
-                      <div>
-                        <p className="text-xs text-gold-400 font-medium">Featured Print Sample</p>
-                        <p className="text-sm text-white font-bold">Gold Foil Textured Business Cards</p>
-                      </div>
-                      <Printer className="w-5 h-5 text-gold-400" />
-                    </div>
-                  </div>
-
-                  {/* High Value Features Grid */}
-                  <div className="grid grid-cols-2 gap-3 text-xs">
-                    <div className="p-3 rounded-xl bg-dark-800/80 border border-white/5 flex items-center gap-2">
-                      <Award className="w-5 h-5 text-gold-400 shrink-0" />
-                      <div>
-                        <div className="text-white font-semibold">Premium Stock</div>
-                        <div className="text-gray-400 text-[11px]">350-700 GSM</div>
-                      </div>
-                    </div>
-                    <div className="p-3 rounded-xl bg-dark-800/80 border border-white/5 flex items-center gap-2">
-                      <Clock className="w-5 h-5 text-gold-400 shrink-0" />
-                      <div>
-                        <div className="text-white font-semibold">Fast Turnaround</div>
-                        <div className="text-gray-400 text-[11px]">Same Day Available</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Quality Assurance Stamp */}
-                  <div className="flex items-center justify-between p-3.5 rounded-xl bg-gradient-to-r from-gold-500/10 to-transparent border-l-4 border-gold-400">
-                    <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-5 h-5 text-gold-400" />
-                      <span className="text-xs sm:text-sm font-medium text-gray-200">
-                        100% Quality & Satisfaction Guaranteed
-                      </span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-
+      {/* Floating Graphic Accents */}
+      <motion.div
+        animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        className="hidden lg:flex absolute top-32 left-12 p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md items-center gap-3 shadow-2xl"
+      >
+        <div className="p-2 rounded-xl bg-purple-500/20 text-purple-400">
+          <Film className="w-5 h-5" />
         </div>
+        <div className="text-left">
+          <p className="text-xs font-bold text-white">Cinematic Edits</p>
+          <p className="text-[10px] text-gray-400">4K Color & FX</p>
+        </div>
+      </motion.div>
+
+      <motion.div
+        animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        className="hidden lg:flex absolute bottom-36 right-12 p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md items-center gap-3 shadow-2xl"
+      >
+        <div className="p-2 rounded-xl bg-cyan-500/20 text-cyan-400">
+          <Palette className="w-5 h-5" />
+        </div>
+        <div className="text-left">
+          <p className="text-xs font-bold text-white">Bold Branding</p>
+          <p className="text-[10px] text-gray-400">High CTR Designs</p>
+        </div>
+      </motion.div>
+
+      {/* Main Container */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        
+        {/* Availability Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-medium mb-6 shadow-[0_0_15px_rgba(139,92,246,0.2)]"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+          </span>
+          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <span>AVAILABLE FOR FREELANCE & FULL-TIME</span>
+        </motion.div>
+
+        {/* Name Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-xs sm:text-sm font-mono uppercase tracking-[0.3em] text-gray-400 mb-3"
+        >
+          {PERSONAL_INFO.name}
+        </motion.h2>
+
+        {/* Large Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]"
+        >
+          Video Editor & <br />
+          <span className="text-gradient">Graphic Designer</span>
+        </motion.h1>
+
+        {/* Subtitle & Tagline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-300 font-light mb-4"
+        >
+          "{PERSONAL_INFO.tagline}"
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="max-w-xl text-xs sm:text-sm text-gray-400 mb-10 leading-relaxed"
+        >
+          {PERSONAL_INFO.subtitle}
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-16"
+        >
+          <a
+            href="#portfolio"
+            data-cursor="hover"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 rounded-full shadow-[0_0_25px_rgba(139,92,246,0.4)] hover:shadow-[0_0_35px_rgba(139,92,246,0.7)] hover:scale-105 transition-all duration-300 group"
+          >
+            <Play className="w-4 h-4 fill-white group-hover:scale-110 transition-transform" />
+            <span>View Portfolio</span>
+          </a>
+
+          <a
+            href="#contact"
+            data-cursor="hover"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-bold text-gray-200 bg-white/5 hover:bg-white/10 border border-white/15 rounded-full hover:border-purple-500/50 hover:text-white transition-all duration-300"
+          >
+            <Send className="w-4 h-4 text-cyan-400" />
+            <span>Hire Me</span>
+          </a>
+        </motion.div>
+
+        {/* Stats Counter Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-4 p-4 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl"
+        >
+          {PERSONAL_INFO.stats.map((stat, idx) => (
+            <div key={idx} className="flex flex-col items-center text-center p-2">
+              <span className="font-heading font-extrabold text-2xl sm:text-4xl text-gradient">
+                {stat.value}
+              </span>
+              <span className="text-xs text-gray-400 mt-1 font-medium">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
       </div>
+
+      {/* Down Scroll Arrow */}
+      <motion.a
+        href="#about"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        className="mt-12 text-gray-500 hover:text-purple-400 transition-colors p-2"
+        aria-label="Scroll to About"
+      >
+        <ArrowDown className="w-5 h-5" />
+      </motion.a>
     </section>
   );
 }
