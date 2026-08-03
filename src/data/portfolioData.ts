@@ -55,6 +55,7 @@ export const PERSONAL_INFO = {
   subtitle: 'Creating cinematic edits, bold branding, and visually stunning content that drives engagement and elevates brands worldwide.',
   phone: '8847476526',
   email: 'krishjotsingh2@gmail.com',
+  website: 'https://www.krishjotsingh.online',
   location: 'Punjab, India',
   stats: [
     { value: '5+', label: 'Years Experience' },

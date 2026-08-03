@@ -9,7 +9,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://krishjotsingh.com'),
+  metadataBase: new URL('https://www.krishjotsingh.online'),
   title: 'Krishjot Singh | Video Editor & Graphic Designer',
   description:
     'Award-winning portfolio of Krishjot Singh - Video Editor & Graphic Designer. Specializing in cinematic video edits, motion graphics, branding, high CTR thumbnails, and social media content.',
@@ -25,13 +25,16 @@ export const metadata: Metadata = {
     'Reels Editor',
     'Portfolio'
   ],
+  alternates: {
+    canonical: 'https://www.krishjotsingh.online',
+  },
   verification: {
     google: 'ossjT3neh0TlGjvJ2rBVdYN9OMgkriAFmRa-x38N3-8',
   },
   openGraph: {
     title: 'Krishjot Singh | Video Editor & Graphic Designer',
     description: 'Crafting visuals that tell stories. Award-winning portfolio in video editing, motion design & branding.',
-    url: 'https://krishjotsingh.com',
+    url: 'https://www.krishjotsingh.online',
     siteName: 'Krishjot Singh Portfolio',
     images: [
       {
