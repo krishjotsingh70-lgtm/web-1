@@ -7,14 +7,13 @@ const ITEMS = [
   'AFTER EFFECTS',
   'PHOTOSHOP',
   'ILLUSTRATOR',
-  'FIGMA',
+  'COREL DRAW',
   'CANVA',
-  'DAVINCI RESOLVE',
   'MOTION GRAPHICS',
   'BRAND IDENTITY',
   'THUMBNAIL DESIGN',
   'REELS EDITING',
-  '4K COLOR GRADING',
+  'CINEMATIC EDITING',
 ];
 
 export default function Marquee() {
