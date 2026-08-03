@@ -145,6 +145,7 @@ export const SKILLS: Skill[] = [
   { name: 'Illustrator', category: 'Tool', icon: 'PenTool', level: 88, description: 'Vector logos, branding assets, and scalable typography.' },
   { name: 'Figma', category: 'Tool', icon: 'Layout', level: 85, description: 'Digital UI concepts, social carousels, and layout design.' },
   { name: 'Canva', category: 'Tool', icon: 'Layers', level: 90, description: 'Rapid template creation and quick client turnaround.' },
+  { name: 'Corel Draw', category: 'Tool', icon: 'PenTool', level: 86, description: 'Vector graphic design, print layout formatting, and branding precision.' },
   { name: 'DaVinci Resolve', category: 'Tool', icon: 'Sliders', level: 85, description: 'Pro color grading, nodes, and studio finishing.' },
   { name: 'Motion Graphics', category: 'Motion', icon: 'Zap', level: 92, description: 'Dynamic 2D/3D animated elements and kinetic text.' },
   { name: 'Logo Design', category: 'Design', icon: 'Shield', level: 90, description: 'Memorable, minimalist, and versatile brand marks.' },
