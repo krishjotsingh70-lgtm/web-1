@@ -25,7 +25,9 @@ export const metadata: Metadata = {
     'Reels Editor',
     'Portfolio'
   ],
-  authors: [{ name: 'Krishjot Singh' }],
+  verification: {
+    google: 'ossjT3neh0TlGjvJ2rBVdYN9OMgkriAFmRa-x38N3-8',
+  },
   openGraph: {
     title: 'Krishjot Singh | Video Editor & Graphic Designer',
     description: 'Crafting visuals that tell stories. Award-winning portfolio in video editing, motion design & branding.',
@@ -51,6 +53,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark scroll-smooth">
+      <head>
+        <meta name="google-site-verification" content="ossjT3neh0TlGjvJ2rBVdYN9OMgkriAFmRa-x38N3-8" />
+      </head>
       <body className="bg-[#050505] text-gray-100 min-h-screen antialiased selection:bg-purple-600 selection:text-white">
         <LenisProvider>
           {children}
