@@ -9,6 +9,7 @@ import ProjectModal from './ProjectModal';
 
 const CATEGORIES = [
   'All',
+  'Wedding Invitations',
   'Video Editing',
   'Posters',
   'Branding',

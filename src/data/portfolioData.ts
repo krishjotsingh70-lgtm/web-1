@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: 'Video Editing' | 'Posters' | 'Branding' | 'Logo Design' | 'Thumbnails' | 'Motion Graphics';
+  category: 'Video Editing' | 'Posters' | 'Branding' | 'Logo Design' | 'Thumbnails' | 'Motion Graphics' | 'Wedding Invitations';
   image: string;
   videoUrl?: string;
   description: string;
@@ -152,6 +152,58 @@ export const SKILLS: Skill[] = [
 ];
 
 export const MY_WORK_ITEMS: Project[] = [
+  {
+    id: 'my-work-wedding-1',
+    title: 'Lokesh & Priya - Royal Swing Card',
+    category: 'Wedding Invitations',
+    image: '/images/wedding_invitation_1.jpg',
+    description: 'Elegantly illustrated royal swing wedding save-the-date invitation card featuring floral embellishments and custom couple artwork.',
+    client: 'Lokesh & Priya',
+    duration: 'Custom Design',
+    tools: ['Illustrator', 'Photoshop'],
+    tags: ['Wedding Invitation', 'Save The Date', 'Illustration', 'Print Design'],
+    stats: 'Save The Date 2025',
+    featured: true,
+  },
+  {
+    id: 'my-work-wedding-2',
+    title: 'Kajal & Arjun - Vintage Floral Arch',
+    category: 'Wedding Invitations',
+    image: '/images/wedding_invitation_2.jpg',
+    description: 'Romantic vintage floral arch wedding invitation card with warm peach pastel tones and classical serif typography.',
+    client: 'Kajal & Arjun',
+    duration: 'Custom Design',
+    tools: ['Illustrator', 'Photoshop'],
+    tags: ['Wedding Invitation', 'Floral Arch', 'Save The Date', 'Pastel'],
+    stats: 'Wedding Card 2022',
+    featured: true,
+  },
+  {
+    id: 'my-work-wedding-3',
+    title: 'Lokesh & Priya - Mandap Floral Arch',
+    category: 'Wedding Invitations',
+    image: '/images/wedding_invitation_3.jpg',
+    description: 'Traditional Indian wedding save-the-date card featuring handcrafted mandap floral arch illustration and golden frame accents.',
+    client: 'Lokesh & Priya',
+    duration: 'Custom Design',
+    tools: ['Illustrator', 'Photoshop'],
+    tags: ['Wedding Card', 'Mandap Illustration', 'Traditional', 'Gold Accent'],
+    stats: 'Save The Date 2025',
+    featured: true,
+  },
+  {
+    id: 'my-work-wedding-4',
+    title: 'Manish Weds Akriti - Royal Couple Portrait',
+    category: 'Wedding Invitations',
+    image: '/images/wedding_invitation_4.jpg',
+    description: 'Premium royal ethnic wedding invitation card featuring custom digital couple portrait under marble arch motif with tropical botanicals.',
+    client: 'Manish & Akriti',
+    duration: 'Custom Design',
+    tools: ['Photoshop', 'Illustrator'],
+    tags: ['Wedding Card', 'Digital Portrait', 'Royal Theme', 'Ethnic Illustration'],
+    stats: 'Save The Date 2024',
+    featured: true,
+  },
   {
     id: 'my-work-1',
     title: 'My Path to Success - Rahul (CSE)',
