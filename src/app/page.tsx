@@ -6,6 +6,7 @@ import Marquee from '../components/Marquee';
 import About from '../components/About';
 import Skills from '../components/Skills';
 import Services from '../components/Services';
+import WorkSlideshow from '../components/WorkSlideshow';
 import Portfolio from '../components/Portfolio';
 import Timeline from '../components/Timeline';
 import Testimonials from '../components/Testimonials';
@@ -38,6 +39,9 @@ export default function Home() {
 
       {/* Services Section */}
       <Services />
+
+      {/* MY Work Automatic Slideshow Section */}
+      <WorkSlideshow />
 
       {/* Portfolio Gallery Section */}
       <Portfolio />
