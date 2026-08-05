@@ -51,7 +51,7 @@ export default function About() {
               {/* Profile Image */}
               <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-gray-900">
                 <Image
-                  src="/images/krishjot_profile.png"
+                  src="/images/krishjot_profile.jpg"
                   alt="Krishjot Singh"
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -88,12 +88,15 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-7 flex flex-col gap-6"
           >
-            <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
+            <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed font-light">
               <p>
-                Hello! I'm <strong className="text-white">Krishjot Singh</strong>, a passionate Video Editor & Graphic Designer dedicated to crafting digital experiences that mesmerize viewers and leave a lasting impression.
+                I am a passionate <strong className="text-white font-semibold">Graphic Designer and Video Editor</strong> with a creative eye for detail. I specialize in creating modern, attractive, and impactful visual designs. My expertise includes logo design, branding, social media graphics, and marketing materials. I also edit high-quality videos for YouTube, social media, and business promotions.
               </p>
               <p>
-                With over <strong className="text-purple-400">5+ years of hands-on experience</strong> in post-production, motion design, and visual brand identity, I turn raw ideas and video footage into polished, high-engagement content. Whether it’s an energetic YouTube edit, a high-converting reel, or a futuristic brand poster, I combine storytelling psychology with technical mastery.
+                I focus on delivering creative solutions that match each client's vision and goals. I am skilled in <strong className="text-purple-400 font-semibold">Adobe Photoshop, Illustrator, Premiere Pro, and After Effects</strong>. I believe that great design and storytelling leave a lasting impression.
+              </p>
+              <p>
+                I am committed to providing professional, high-quality work with on-time delivery. My goal is to help brands and businesses stand out through creative visuals and engaging videos. <strong className="text-cyan-400 font-semibold">Let's work together to bring your ideas to life with creativity and excellence.</strong>
               </p>
             </div>
 

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: 'Krishjot Singh Portfolio',
     images: [
       {
-        url: '/images/krishjot_profile.png',
+        url: '/images/krishjot_profile.jpg',
         width: 1200,
         height: 630,
         alt: 'Krishjot Singh Portfolio',
