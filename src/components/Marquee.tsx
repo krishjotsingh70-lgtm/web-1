@@ -23,23 +23,23 @@ export default function Marquee() {
       <div className="absolute top-0 left-0 bottom-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
       <div className="absolute top-0 right-0 bottom-0 w-24 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
 
-      <div className="flex w-[200%] animate-marquee whitespace-nowrap">
+      <div className="flex w-max animate-marquee whitespace-nowrap">
         {/* Loop 1 */}
-        <div className="flex items-center justify-around w-1/2 gap-8">
+        <div className="flex items-center gap-10 shrink-0 pr-10">
           {ITEMS.map((item, idx) => (
-            <div key={idx} className="flex items-center gap-8 text-sm font-heading font-extrabold tracking-widest text-gray-300 hover:text-cyan-400 transition-colors">
+            <div key={idx} className="flex items-center gap-10 text-sm font-heading font-extrabold tracking-widest text-gray-300 hover:text-cyan-400 transition-colors shrink-0">
               <span>{item}</span>
-              <Sparkles className="w-4 h-4 text-purple-400" />
+              <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
             </div>
           ))}
         </div>
 
         {/* Loop 2 Duplicate for infinite loop */}
-        <div className="flex items-center justify-around w-1/2 gap-8">
+        <div className="flex items-center gap-10 shrink-0 pr-10">
           {ITEMS.map((item, idx) => (
-            <div key={`dup-${idx}`} className="flex items-center gap-8 text-sm font-heading font-extrabold tracking-widest text-gray-300 hover:text-cyan-400 transition-colors">
+            <div key={`dup-${idx}`} className="flex items-center gap-10 text-sm font-heading font-extrabold tracking-widest text-gray-300 hover:text-cyan-400 transition-colors shrink-0">
               <span>{item}</span>
-              <Sparkles className="w-4 h-4 text-purple-400" />
+              <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
             </div>
           ))}
         </div>

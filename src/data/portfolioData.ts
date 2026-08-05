@@ -58,7 +58,6 @@ export const PERSONAL_INFO = {
   website: 'https://www.krishjotsingh.online',
   location: 'Punjab, India',
   stats: [
-    { value: '5+', label: 'Years Experience' },
     { value: '150+', label: 'Projects Completed' },
     { value: '50M+', label: 'Video Views Generated' },
     { value: '100%', label: 'Client Satisfaction' },

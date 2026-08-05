@@ -133,7 +133,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-4 p-4 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl"
+          className="w-full max-w-4xl grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl"
         >
           {PERSONAL_INFO.stats.map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center text-center p-2">
