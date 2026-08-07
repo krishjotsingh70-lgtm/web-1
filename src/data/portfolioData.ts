@@ -48,6 +48,13 @@ export interface Testimonial {
   quote: string;
 }
 
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+  category: 'General' | 'Services' | 'Process & Revisions' | 'Pricing & Timing';
+}
+
 export const PERSONAL_INFO = {
   name: 'Krishjot Singh',
   role: 'Video Editor & Graphic Designer',
@@ -454,5 +461,44 @@ export const TESTIMONIALS: Testimonial[] = [
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
     rating: 5,
     quote: 'Super quick turnarounds, top-notch communication, and unreal creativity. Krishjot understands storytelling better than most editors in the industry.',
+  },
+];
+
+export const FAQS: FAQItem[] = [
+  {
+    id: 'faq-1',
+    question: 'What video editing and graphic design services do you offer?',
+    answer: 'I offer end-to-end creative visual services including cinematic YouTube video editing, Instagram Reels / TikTok edits, motion graphics, custom high-CTR thumbnails, brand identity packages, poster design, and digital marketing graphics.',
+    category: 'Services',
+  },
+  {
+    id: 'faq-2',
+    question: 'What software and tools do you use for editing and design?',
+    answer: 'I work with industry-standard professional software: Adobe Premiere Pro & DaVinci Resolve for video editing and color grading, Adobe After Effects for motion graphics & VFX, Adobe Photoshop & Illustrator for graphic design, and Figma for UI assets.',
+    category: 'General',
+  },
+  {
+    id: 'faq-3',
+    question: 'What is your typical project turnaround time?',
+    answer: 'Turnaround time depends on the project scope. YouTube Thumbnails & Social Posts take 24–48 hours. Reels & Short Videos take 1–3 business days. Full-length cinematic YouTube edits or comprehensive branding take 3–7 business days. Rush orders can be accommodated upon request.',
+    category: 'Pricing & Timing',
+  },
+  {
+    id: 'faq-4',
+    question: 'How does the revision process work?',
+    answer: 'Client satisfaction is my highest priority. I provide 2–3 rounds of detailed revisions included with every project to fine-tune pacing, color, text overlays, and audio mix until you are 100% satisfied with the final result.',
+    category: 'Process & Revisions',
+  },
+  {
+    id: 'faq-5',
+    question: 'How do I submit raw footage and project assets?',
+    answer: 'You can easily share raw video files, audio tracks, and brand guidelines via Google Drive, Dropbox, WeTransfer, or Frame.io. I provide secure folders for every client project.',
+    category: 'Process & Revisions',
+  },
+  {
+    id: 'faq-6',
+    question: 'Can you handle long-term ongoing video editing for my channel or agency?',
+    answer: 'Yes! I offer dedicated monthly retainer packages for creators, channels, and agencies looking for consistent weekly video edits, thumbnail designs, and content strategy.',
+    category: 'General',
   },
 ];
