@@ -9,7 +9,6 @@ import Services from '../components/Services';
 import WorkSlideshow from '../components/WorkSlideshow';
 import FeaturedReel from '../components/FeaturedReel';
 import Portfolio from '../components/Portfolio';
-import Timeline from '../components/Timeline';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
@@ -50,9 +49,6 @@ export default function Home() {
 
       {/* Portfolio Gallery Section */}
       <Portfolio />
-
-      {/* Career Journey Timeline Section */}
-      <Timeline />
 
       {/* Testimonials Section */}
       <Testimonials />
