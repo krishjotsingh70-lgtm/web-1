@@ -1,8 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { X, ExternalLink, Play, Tag, Clock, Award, Wrench } from 'lucide-react';
+import { X, ExternalLink, Play, Tag, Clock, Award, Wrench, Instagram } from 'lucide-react';
 import { Project } from '../data/portfolioData';
 
 interface ProjectModalProps {
@@ -10,8 +11,19 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+const getInstagramEmbedUrl = (url?: string) => {
+  if (!url) return null;
+  const match = url.match(/instagram\.com\/(?:reel|p)\/([A-Za-z0-9_-]+)/);
+  if (match && match[1]) {
+    return `https://www.instagram.com/reel/${match[1]}/embed`;
+  }
+  return null;
+};
+
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   if (!project) return null;
+
+  const instagramEmbedUrl = getInstagramEmbedUrl(project.videoUrl);
 
   return (
     <AnimatePresence>
@@ -58,24 +70,38 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Scrollable Content Body */}
           <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
             
-            {/* Visual Banner */}
-            <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-gray-900 border border-white/10 shadow-inner group">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c14] via-transparent to-transparent opacity-60" />
-              
-              {project.category === 'Video Editing' || project.category === 'Motion Graphics' ? (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-purple-600/90 text-white flex items-center justify-center shadow-[0_0_30px_#8b5cf6] group-hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 fill-white ml-1" />
-                  </div>
+            {/* Visual Banner or Video Player */}
+            {instagramEmbedUrl ? (
+              <div className="relative w-full rounded-2xl overflow-hidden bg-black/90 border border-white/15 shadow-2xl p-4 flex flex-col items-center justify-center">
+                <div className="w-full max-w-md aspect-[9/16] max-h-[520px] rounded-xl overflow-hidden border border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.2)] bg-black">
+                  <iframe
+                    src={instagramEmbedUrl}
+                    title={project.title}
+                    className="w-full h-full border-0"
+                    allowFullScreen
+                    scrolling="no"
+                  />
                 </div>
-              ) : null}
-            </div>
+              </div>
+            ) : (
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-gray-900 border border-white/10 shadow-inner group">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c14] via-transparent to-transparent opacity-60" />
+                
+                {project.category === 'Video Editing' || project.category === 'Motion Graphics' ? (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-purple-600/90 text-white flex items-center justify-center shadow-[0_0_30px_#8b5cf6] group-hover:scale-110 transition-transform">
+                      <Play className="w-8 h-8 fill-white ml-1" />
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            )}
 
             {/* Project Details Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -130,6 +156,21 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   </div>
                 </div>
 
+                {project.videoUrl && (
+                  <div>
+                    <a
+                      href={project.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 text-center text-xs font-bold text-white bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+                    >
+                      <Instagram className="w-4 h-4" />
+                      <span>Watch on Instagram</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                )}
+
                 <div className="pt-2 border-t border-white/10">
                   <a
                     href="#contact"
@@ -149,3 +190,4 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     </AnimatePresence>
   );
 }
+

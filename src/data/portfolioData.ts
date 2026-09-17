@@ -160,6 +160,20 @@ export const SKILLS: Skill[] = [
 
 export const MY_WORK_ITEMS: Project[] = [
   {
+    id: 'my-work-instagram-reel-1',
+    title: 'Featured Instagram Reel Edit',
+    category: 'Video Editing',
+    image: '/images/portfolio_video_editing.png',
+    videoUrl: 'https://www.instagram.com/reel/DdQoSUspktp/',
+    description: 'High-engagement short-form Instagram Reel video edit showcasing dynamic cuts, motion graphics, atmospheric sound effects, and color grading.',
+    client: 'Instagram Reel Project',
+    duration: 'Short Form / Reel',
+    tools: ['Adobe Premiere Pro', 'After Effects', 'Photoshop'],
+    tags: ['Instagram Reel', 'Reel Edit', 'Short Form', 'Video Editing', 'Motion FX'],
+    stats: 'Featured Reel',
+    featured: true,
+  },
+  {
     id: 'my-work-wedding-1',
     title: 'Lokesh & Priya - Royal Swing Card',
     category: 'Wedding Invitations',
