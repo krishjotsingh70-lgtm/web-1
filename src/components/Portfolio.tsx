@@ -158,6 +158,18 @@ export default function Portfolio() {
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
+        onPrev={() => {
+          if (!selectedProject) return;
+          const idx = filteredProjects.findIndex((p) => p.id === selectedProject.id);
+          const prevIdx = (idx - 1 + filteredProjects.length) % filteredProjects.length;
+          setSelectedProject(filteredProjects[prevIdx]);
+        }}
+        onNext={() => {
+          if (!selectedProject) return;
+          const idx = filteredProjects.findIndex((p) => p.id === selectedProject.id);
+          const nextIdx = (idx + 1) % filteredProjects.length;
+          setSelectedProject(filteredProjects[nextIdx]);
+        }}
       />
     </section>
   );

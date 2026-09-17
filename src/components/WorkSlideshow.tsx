@@ -212,60 +212,74 @@ export default function WorkSlideshow() {
                 />
               </div>
 
-              {/* Poster Slideshow Area */}
-              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] lg:aspect-[16/9] rounded-2xl overflow-hidden bg-black/60 border border-white/10 group">
+              {/* Poster Slideshow Viewport (Clean, Unobstructed Artwork) */}
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] min-h-[320px] rounded-2xl overflow-hidden bg-slate-950/90 border border-white/10 group">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentWork.id}
-                    initial={{ opacity: 0, scale: 1.05 }}
+                    initial={{ opacity: 0, scale: 1.02 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                    className="relative w-full h-full"
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    className="relative w-full h-full flex items-center justify-center p-2"
                   >
                     <Image
                       src={currentWork.image}
                       alt={currentWork.title}
                       fill
                       priority
-                      className="object-contain bg-slate-950/80"
+                      className="object-contain p-2"
                     />
 
-                    {/* Subtle Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-
-                    {/* Top Overlay Badge & Action */}
-                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                      <span className="text-xs font-mono font-medium px-3 py-1 rounded-full bg-black/60 border border-cyan-500/30 text-cyan-300 backdrop-blur-md flex items-center gap-1.5">
+                    {/* Top Overlay Controls */}
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+                      <span className="text-xs font-mono font-medium px-3 py-1 rounded-full bg-black/70 border border-cyan-500/30 text-cyan-300 backdrop-blur-md flex items-center gap-1.5 pointer-events-auto">
                         <Sparkles className="w-3 h-3 text-cyan-400" />
                         {currentWork.category}
                       </span>
 
                       <button
                         onClick={() => setSelectedProject(currentWork)}
-                        className="p-2 rounded-full bg-black/60 border border-white/20 text-white hover:bg-purple-600 hover:border-purple-400 transition-all duration-300 backdrop-blur-md shadow-lg"
+                        className="p-2 rounded-full bg-black/70 border border-white/20 text-white hover:bg-purple-600 hover:border-purple-400 transition-all duration-300 backdrop-blur-md shadow-lg pointer-events-auto"
                         title="Expand Image Preview"
                       >
                         <Maximize2 className="w-4 h-4" />
                       </button>
                     </div>
-
-                    {/* Bottom Caption Overlay inside slide */}
-                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                      <div className="max-w-xl bg-black/70 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl">
-                        <span className="text-[11px] font-mono text-purple-400">
-                          Client: {currentWork.client}
-                        </span>
-                        <h3 className="font-heading font-extrabold text-lg sm:text-xl text-white mt-1">
-                          {currentWork.title}
-                        </h3>
-                        <p className="text-xs text-gray-300 mt-1 line-clamp-2 font-light">
-                          {currentWork.description}
-                        </p>
-                      </div>
-                    </div>
                   </motion.div>
                 </AnimatePresence>
+              </div>
+
+              {/* Separate Dedicated Project Information Panel (No Overlap) */}
+              <div className="mt-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-inner">
+                <div className="space-y-1 min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {currentWork.client && (
+                      <span className="text-[11px] font-mono text-purple-400">
+                        Client: {currentWork.client}
+                      </span>
+                    )}
+                    {currentWork.stats && (
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                        {currentWork.stats}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-heading font-extrabold text-base sm:text-lg text-white truncate">
+                    {currentWork.title}
+                  </h3>
+                  <p className="text-xs text-gray-300 line-clamp-2 font-light leading-relaxed">
+                    {currentWork.description}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => setSelectedProject(currentWork)}
+                  className="flex-shrink-0 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-xs font-bold hover:shadow-[0_0_15px_rgba(139,92,246,0.4)] transition-all duration-300 flex items-center gap-1.5"
+                >
+                  <Maximize2 className="w-3.5 h-3.5" />
+                  <span>View Details</span>
+                </button>
               </div>
 
               {/* Bottom Control Bar */}
@@ -340,6 +354,16 @@ export default function WorkSlideshow() {
         <ProjectModal
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
+          onPrev={() => {
+            const idx = filteredItems.findIndex((p) => p.id === selectedProject.id);
+            const prevIdx = (idx - 1 + filteredItems.length) % filteredItems.length;
+            setSelectedProject(filteredItems[prevIdx]);
+          }}
+          onNext={() => {
+            const idx = filteredItems.findIndex((p) => p.id === selectedProject.id);
+            const nextIdx = (idx + 1) % filteredItems.length;
+            setSelectedProject(filteredItems[nextIdx]);
+          }}
         />
       )}
     </section>
