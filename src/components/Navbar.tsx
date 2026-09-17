@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import ColorCustomizer from './ColorCustomizer';
 
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },
@@ -83,8 +84,11 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          {/* CTA & Customize Colors & Mobile Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Customize Colors Option at the very top */}
+            <ColorCustomizer />
+
             <a
               href="#contact"
               data-cursor="hover"
