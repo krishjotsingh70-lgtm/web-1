@@ -9,12 +9,12 @@ import ProjectModal from './ProjectModal';
 
 const CATEGORIES = [
   'All',
+  'Thumbnails',
   'Wedding Invitations',
   'Video Editing',
   'Posters',
   'Branding',
   'Logo Design',
-  'Thumbnails',
   'Motion Graphics',
 ];
 
@@ -95,10 +95,16 @@ export default function Portfolio() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
 
                   {/* Top Category Badge */}
-                  <div className="absolute top-4 left-4 z-10">
+                  <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5">
                     <span className="text-[11px] font-mono font-medium px-3 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur-md text-cyan-300">
                       {project.category}
                     </span>
+                    {project.category === 'Thumbnails' && (
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-red-600/80 border border-red-500/50 text-white backdrop-blur-md flex items-center gap-1 shadow-md">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                        YouTube
+                      </span>
+                    )}
                   </div>
 
                   {/* Stats Pill */}

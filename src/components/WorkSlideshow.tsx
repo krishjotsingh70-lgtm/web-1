@@ -17,7 +17,7 @@ export default function WorkSlideshow() {
 
   const SLIDE_DURATION = 4000; // 4 seconds per slide
 
-  const WORK_CATEGORIES = ['All MY Work', 'Wedding Invitations', 'Posters'];
+  const WORK_CATEGORIES = ['All MY Work', 'Thumbnails', 'Wedding Invitations', 'Posters'];
   const [activeCategory, setActiveCategory] = useState('All MY Work');
 
   const filteredItems = activeCategory === 'All MY Work'
@@ -91,10 +91,10 @@ export default function WorkSlideshow() {
             </span>
           </div>
           <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            MY Work <span className="text-gradient">Poster Slideshow</span>
+            MY Work <span className="text-gradient">Featured Slideshow</span>
           </h2>
           <p className="text-sm sm:text-base text-gray-400 mt-4 leading-relaxed">
-            Auto-cycling column showcase featuring wedding invitations, high-definition admission posters, and event banners designed for clients.
+            Auto-cycling showcase featuring high-CTR YouTube thumbnails, wedding invitations, and high-definition event posters designed for clients.
           </p>
 
           {/* Category Filter Pills (Different Columns / Categories) */}
@@ -111,7 +111,7 @@ export default function WorkSlideshow() {
                       : 'bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
                   }`}
                 >
-                  {cat === 'Wedding Invitations' ? '💍 Wedding Invitations' : cat === 'Posters' ? '🎨 Posters' : '✨ All MY Work'}
+                  {cat === 'Thumbnails' ? '🖼 YouTube Thumbnails' : cat === 'Wedding Invitations' ? '💍 Wedding Invitations' : cat === 'Posters' ? '🎨 Posters' : '✨ All MY Work'}
                 </button>
               );
             })}
@@ -149,7 +149,9 @@ export default function WorkSlideshow() {
                     }`}
                   >
                     {/* Thumbnail Image */}
-                    <div className="relative w-16 h-20 rounded-xl overflow-hidden bg-gray-900 flex-shrink-0 border border-white/10">
+                    <div className={`relative rounded-xl overflow-hidden bg-gray-900 flex-shrink-0 border border-white/10 ${
+                      item.category === 'Thumbnails' ? 'w-20 sm:w-24 h-14' : 'w-16 h-20'
+                    }`}>
                       <Image
                         src={item.image}
                         alt={item.title}

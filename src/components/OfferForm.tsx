@@ -290,7 +290,7 @@ export default function OfferForm() {
                       name="requirement"
                       value={formData.requirement}
                       onChange={handleChange}
-                      placeholder="e.g. Cinematic YouTube video edit, poster design, brand logo, wedding invitation..."
+                      placeholder="e.g. YouTube thumbnail design, cinematic video edit, poster design, brand logo..."
                       className={`w-full px-4 py-3.5 rounded-2xl bg-white/[0.04] border ${
                         errors.requirement ? 'border-pink-500/80 focus:border-pink-500' : 'border-white/10 focus:border-pink-500'
                       } text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500/20 transition-all duration-200`}

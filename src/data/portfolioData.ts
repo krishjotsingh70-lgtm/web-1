@@ -160,6 +160,32 @@ export const SKILLS: Skill[] = [
 
 export const MY_WORK_ITEMS: Project[] = [
   {
+    id: 'my-work-thumbnail-1',
+    title: 'Australia Perth Vlog - ਗੱਡੀਆਂ ਦੇ ਸ਼ੌਕੀਨ',
+    category: 'Thumbnails',
+    image: '/images/thumbnail_vlog_australia_perth.jpg',
+    description: 'High-energy YouTube vlog thumbnail designed for automotive lifestyle content in Perth, Australia. Crafted with high-impact Punjabi & English typography, bold subject cutouts, dynamic drop shadows, sticker badges, and vibrant luxury car highlights.',
+    client: 'Australia Perth Punjabi Vlogs',
+    duration: 'Thumbnail Design',
+    tools: ['Photoshop', 'Lightroom', 'Illustrator'],
+    tags: ['YouTube Thumbnail', 'Vlog Thumbnail', 'High CTR', 'Automotive', 'Punjabi Vlog', 'Typography FX'],
+    stats: 'Viral Vlog CTR',
+    featured: true,
+  },
+  {
+    id: 'my-work-thumbnail-2',
+    title: 'Podcast: ਜ਼ਿੰਦਗੀ ਬਦਲਣ ਵਾਲੀ ਗੱਲ!',
+    category: 'Thumbnails',
+    image: '/images/thumbnail_podcast_zindagi_badalan.jpg',
+    description: 'High-retention YouTube podcast thumbnail designed with deep storytelling aesthetics. Features dramatic studio lighting, Shure SM7B mic integration, golden reflection of Sri Harmandir Sahib, and textured distressed brush typography for maximum viewer curiosity.',
+    client: 'Punjabi Talk Show & Podcast',
+    duration: 'Thumbnail Design',
+    tools: ['Photoshop', 'Lightroom', 'Digital Painting'],
+    tags: ['YouTube Thumbnail', 'Podcast Thumbnail', 'Storytelling', 'High Retention', 'Brush Typography', 'Punjabi Talk Show'],
+    stats: '15%+ High CTR',
+    featured: true,
+  },
+  {
     id: 'my-work-instagram-reel-1',
     title: 'Featured Instagram Reel Edit',
     category: 'Video Editing',
