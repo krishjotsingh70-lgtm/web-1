@@ -9,7 +9,6 @@ import Services from '../components/Services';
 import WorkSlideshow from '../components/WorkSlideshow';
 import FeaturedReel from '../components/FeaturedReel';
 import Portfolio from '../components/Portfolio';
-import OfferForm from '../components/OfferForm';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
@@ -50,9 +49,6 @@ export default function Home() {
 
       {/* Portfolio Gallery Section */}
       <Portfolio />
-
-      {/* Google Form-style 30% OFF Offer Section */}
-      <OfferForm />
 
       {/* Testimonials Section ("What Clients Say") */}
       <Testimonials />

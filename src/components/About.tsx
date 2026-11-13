@@ -51,10 +51,11 @@ export default function About() {
               {/* Profile Image */}
               <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-gray-900">
                 <Image
-                  src="/images/krishjot_profile.jpg"
+                  src="/images/krishjot_about.jpg"
                   alt="Krishjot Singh"
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  priority
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
                 
                 {/* Overlay gradient */}
