@@ -45,9 +45,9 @@ export default function LoadingScreen() {
               transition={{ duration: 0.5 }}
               className="relative inline-block mb-4"
             >
-              <h1 className="font-heading text-4xl sm:text-6xl font-extrabold tracking-tight text-gradient">
+              <span className="block font-heading text-4xl sm:text-6xl font-extrabold tracking-tight text-gradient">
                 KRISHJOT
-              </h1>
+              </span>
               <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-purple-600 to-cyan-500 opacity-20 blur-xl"></div>
             </motion.div>
             <p className="text-xs sm:text-sm text-gray-400 font-light tracking-widest uppercase">

@@ -3,18 +3,19 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import ColorCustomizer from './ColorCustomizer';
 
 const NAV_ITEMS = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Services', href: '#services' },
-  { label: 'MY Work', href: '#my-work' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Reviews', href: '#testimonials' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '/#about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'MY Work', href: '/#my-work' },
+  { label: 'Portfolio', href: '/#portfolio' },
+  { label: 'Reviews', href: '/#testimonials' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 export default function Navbar() {
@@ -50,8 +51,8 @@ export default function Navbar() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo Badge */}
-          <a
-            href="#hero"
+          <Link
+            href="/"
             className="flex items-center gap-3 group"
             data-cursor="hover"
           >
@@ -68,7 +69,7 @@ export default function Navbar() {
                 <Sparkles className="w-2.5 h-2.5 text-cyan-400" /> Editor & Designer
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav Items */}
           <nav className="hidden md:flex items-center gap-1 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-1.5 rounded-full shadow-inner">

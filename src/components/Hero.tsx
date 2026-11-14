@@ -62,15 +62,15 @@ export default function Hero() {
           <span>AVAILABLE FOR FREELANCE & FULL-TIME</span>
         </motion.div>
 
-        {/* Name Title */}
-        <motion.h2
+        {/* Name Title & Location Badge */}
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-xs sm:text-sm font-mono uppercase tracking-[0.3em] text-gray-400 mb-3"
         >
-          {PERSONAL_INFO.name}
-        </motion.h2>
+          {PERSONAL_INFO.name} • Ludhiana, Punjab & Worldwide
+        </motion.p>
 
         {/* Large Headline */}
         <motion.h1
@@ -79,7 +79,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]"
         >
-          Video Editor & <br />
+          Professional Video Editor & <br />
           <span className="text-gradient">Graphic Designer</span>
         </motion.h1>
 
@@ -99,7 +99,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.35 }}
           className="max-w-xl text-xs sm:text-sm text-gray-400 mb-10 leading-relaxed"
         >
-          {PERSONAL_INFO.subtitle}
+          Freelance Video Editor and Graphic Designer based in Ludhiana, Punjab. Specializing in cinematic YouTube editing, wedding films, viral Instagram Reels, high CTR thumbnails, and impactful brand design for clients across India and globally.
         </motion.p>
 
         {/* CTA Buttons */}

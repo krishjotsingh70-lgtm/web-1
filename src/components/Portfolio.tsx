@@ -86,7 +86,7 @@ export default function Portfolio() {
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-900">
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.category} by Krishjot Singh, Video Editor & Graphic Designer`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />

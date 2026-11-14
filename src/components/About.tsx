@@ -52,7 +52,7 @@ export default function About() {
               <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-gray-900">
                 <Image
                   src="/images/krishjot_about.jpg"
-                  alt="Krishjot Singh"
+                  alt="Krishjot Singh - Professional Video Editor and Graphic Designer in Ludhiana, Punjab"
                   fill
                   priority
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
@@ -91,13 +91,13 @@ export default function About() {
           >
             <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed font-light">
               <p>
-                I am a passionate <strong className="text-white font-semibold">Graphic Designer and Video Editor</strong> with a creative eye for detail. I specialize in creating modern, attractive, and impactful visual designs. My expertise includes logo design, branding, social media graphics, and marketing materials. I also edit high-quality videos for YouTube, social media, and business promotions.
+                Based in <strong className="text-white font-semibold">Ludhiana, Punjab</strong>, I am a passionate <strong className="text-white font-semibold">Professional Video Editor and Graphic Designer</strong> dedicated to visual storytelling and high-retention content. I collaborate with creators, businesses, and agencies across India and internationally to craft modern, attractive, and commercially impactful visual experiences.
               </p>
               <p>
-                I focus on delivering creative solutions that match each client's vision and goals. I am skilled in <strong className="text-purple-400 font-semibold">Adobe Photoshop, Illustrator, Premiere Pro, and After Effects</strong>. I believe that great design and storytelling leave a lasting impression.
+                My core expertise spans <strong className="text-purple-400 font-semibold">cinematic video editing, wedding film editing, viral Instagram Reels, high-CTR YouTube thumbnail design, branding, and motion graphics</strong>. Working with industry-standard tools including <strong className="text-purple-400 font-semibold">Adobe Premiere Pro, After Effects, Photoshop, and Illustrator</strong>, I engineer videos and designs that grab immediate attention and boost engagement.
               </p>
               <p>
-                I am committed to providing professional, high-quality work with on-time delivery. My goal is to help brands and businesses stand out through creative visuals and engaging videos. <strong className="text-cyan-400 font-semibold">Let's work together to bring your ideas to life with creativity and excellence.</strong>
+                Whether you need a full-time creative editor or a reliable freelance partner in Punjab for ongoing monthly content, I am committed to delivering pixel-perfect quality and on-time turnarounds. <strong className="text-cyan-400 font-semibold">Let's work together to elevate your visual identity and tell unforgettable stories.</strong>
               </p>
             </div>
 

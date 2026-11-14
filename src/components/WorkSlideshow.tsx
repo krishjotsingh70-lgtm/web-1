@@ -154,9 +154,9 @@ export default function WorkSlideshow() {
                     }`}>
                       <Image
                         src={item.image}
-                        alt={item.title}
+                        alt={`${item.title} - ${item.category} by Krishjot Singh`}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       {isActive && (
                         <div className="absolute inset-0 bg-purple-600/20 backdrop-blur-[1px] flex items-center justify-center">
@@ -227,7 +227,7 @@ export default function WorkSlideshow() {
                   >
                     <Image
                       src={currentWork.image}
-                      alt={currentWork.title}
+                      alt={`${currentWork.title} - ${currentWork.category} Design Showcase by Krishjot Singh, Ludhiana`}
                       fill
                       priority
                       className="object-contain p-2"
